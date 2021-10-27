@@ -18,8 +18,11 @@ in
     autoOptimiseStore = true;
     trustedUsers = [ "root" "@wheel" ];
     allowedUsers = [ "root" "@wheel" ];
-    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-    registry.nixpkgs.flake = inputs.nixpkgs;
+    nixPath = [ "nixpkgs=${pkgs.path}" ];
+    registry.nixpkgs = {
+      from = { id = "nixpkgs"; type = "indirect"; };
+      to = { type = "path"; path = pkgs.path; };
+    };
     package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = nix-command flakes recursive-nix ca-derivations ca-references

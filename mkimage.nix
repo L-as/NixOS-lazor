@@ -11,18 +11,20 @@
 # The derivation for the SD image will be placed in
 # config.system.build.sdImage
 
-{ config, lib, inputs, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 
 let
-  rootfsImage = pkgs.callPackage "${inputs.nixpkgs}/nixos/lib/make-ext4-fs.nix" {
+  rootfsImage = pkgs.callPackage "${pkgs.path}/nixos/lib/make-ext4-fs.nix" {
     inherit pkgs;
     inherit (config.sdImage) storePaths;
     volumeLabel = "NIXOS_SD";
   };
 in
 {
+  imports = [ "${(import ./sources.nix).kevin-nix}/modules/depthcharge.nix" ];
+  
   options.sdImage = {
     imageName = mkOption {
       default = "${config.sdImage.imageBaseName}-${config.system.nixos.label}-${pkgs.stdenv.system}.img";
