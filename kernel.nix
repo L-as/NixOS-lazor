@@ -5,7 +5,6 @@ let
 in
 {
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  hardware.deviceTree.name = "qcom/sc7180-trogdor-lazor-r3-lte.dtb";
 
   nixpkgs.overlays = [(final: prev: {
     makeModulesClosure = args:
