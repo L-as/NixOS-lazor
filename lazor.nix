@@ -23,7 +23,7 @@ in
   boot.loader.grub.enable = false;
   boot.kernelParams = [ "console=tty1" ];
 
-  powerManagement.cpuFreqGovernor = "ondemand";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 
   hardware.enableAllFirmware = true; # FIXME: is this needed?
 
