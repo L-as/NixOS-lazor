@@ -1,12 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cadmium = pkgs.fetchFromGitHub {
-    owner = "Maccraft123";
-    repo = "cadmium";
-    rev = "e405d086dd6579499811436cd9979c392d0fa4e6";
-    sha256 = "AxAq0nIUO/dXBuwVKj61fnqiOugKPh2xmy7ndzioZnI=";
-  };
+  inherit (import ./sources.nix) cadmium;
   alsa-ucm-conf = pkgs.alsa-ucm-conf.overrideAttrs (o: {
     prePatch = (o.prePatch or "") + ''
       cp ${cadmium}/fs/ucm/SC7180 -rt ./ucm2
