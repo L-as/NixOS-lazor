@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 {
-  imports = [ ./kernel.nix "${import ./sources.nix).kevin-nix}/modules/depthcharge.nix" ];
+  imports = [ ./kernel.nix "${(import ./sources.nix).kevin-nix}/modules/depthcharge.nix" ];
 
   boot.loader.depthcharge = {
     enable = true;
