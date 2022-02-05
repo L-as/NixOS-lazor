@@ -1,5 +1,3 @@
-**NB: I haven't tested anything yet**
-
 # Set-up
 
 Use gptfdisk as normal, have 1 partition with type ChromeOS kernel (7F00) that is
