@@ -1,13 +1,5 @@
 { config, pkgs, lib, ... }:
 
-let
-  inherit (import ./sources.nix) cadmium;
-  alsa-ucm-conf = pkgs.alsa-ucm-conf.overrideAttrs (o: {
-    prePatch = (o.prePatch or "") + ''
-      cp ${cadmium}/fs/ucm/SC7180 -rt ./ucm2
-    '';
-  });
-in
 {
   imports = [ ./kernel.nix ./stub-bootloader.nix ];
 
@@ -40,13 +32,4 @@ in
         ExecStart = "${pkgs.rmtfs}/bin/rmtfs -r -s -o ${rmtfs_firmware}";
       };
     };
-
-  # This is really ugly, but replacing alsa-ucm-conf the
-  # normal way would invalidate the cache.
-  system.replaceRuntimeDependencies = [
-    {
-      original = pkgs.alsa-ucm-conf;
-      replacement = alsa-ucm-conf;
-    }
-  ];
 }
