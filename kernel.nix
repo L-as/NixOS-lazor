@@ -9,14 +9,14 @@ in
   nixpkgs.overlays = [(final: prev: {
     makeModulesClosure = args:
       let old = (prev.makeModulesClosure args); in
-      pkgs.runCommand "makeModulesClosure-overriden" {} ''
+      pkgs.runCommand "makeModulesClosure-overridden" {} ''
       	mkdir $out
       	ln -t $out -s ${old}/*
       	rm $out/lib
       	mkdir $out/lib
       	ln -t $out/lib -s ${old}/lib/*
       	rm -r $out/lib/firmware
-        ln -s ${args.firmware}/lib/firmware $out/lib/firmware
+       ln -s ${args.firmware}/lib/firmware $out/lib/firmware
       '';
     firmware-trogdor = pkgs.runCommand "firmware-trogdor" {} ''
       mkdir -p $out/lib
