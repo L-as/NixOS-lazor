@@ -1,3 +1,10 @@
+# Preparing the installation
+
+You must first set your Chromebook to developer mode. Then you can boot
+from an external storage device. You can thus prepare an external storage
+device with something like the approach noted below so that you can
+install onto the internal eMMC.
+
 # Set-up
 
 Use gptfdisk as normal, have 1 partition with type ChromeOS kernel (7F00) that is
@@ -55,6 +62,3 @@ Make "/" a `tmpfs`. This is a good practice in general.
   + `systemctl --user restart pipewire` to fix it.
 - Hardware decode through `mpv --hwdec=v4l2m2m_copy` doesn't work great,
   especially seeking.
-- Screensharing doesn't work on Sway, even with Pipewire. You can use `wf-recorder`,
-  but the video is flipped and the performance is horrible.
-- You get a kernel panic when booting, but it doesn't seem to be important.
