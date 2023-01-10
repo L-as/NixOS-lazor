@@ -156,7 +156,6 @@
   "dw_mipi_dsi"
   "dw_hdmi"
   "drm_dp_aux_bus"
-  "drm_cma_helper"
   "dm_crypt"
   "encrypted_keys"
   "trusted"
