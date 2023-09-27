@@ -2,14 +2,9 @@
 
 stdenv.mkDerivation {
   pname = "qrtr";
-  version = "unstable-2020-12-07";
+  version = "unstable";
 
-  src = fetchFromGitHub {
-    owner = "andersson";
-    repo = "qrtr";
-    rev = "9dc7a88548c27983e06465d3fbba2ba27d4bc050";
-    sha256 = "eJyErfLpIv4ndX2MPtjLTOQXrcWugQo/03Kz4S8S0xw=";
-  };
+  src = (import ./sources.nix { inherit fetchFromGitHub; }).qrtr;
 
   makeFlags = [ "prefix=$(out)" ];
 }

@@ -1,10 +1,26 @@
-{
-  kevin-nix = builtins.fetchTarball {
-    url = "https://github.com/thefloweringash/kevin-nix/archive/fedcf821bca2ff4798e4436b1bc5813962bea8b5.tar.gz";
-    sha256 = "05yqasr2a1wg75bjjd2fdxnscnz35hb53gf347i3hbgrfwmvysrl";
+{ fetchFromGitHub }: {
+  imagebuilder = fetchFromGitHub {
+    owner = "hexdump0815";
+    repo = "imagebuilder";
+    rev = "56c8168bd925573ea20096ab3c8b54fa12fe667d";
+    sha256 = "WXVyJqdIUFTUGAftfySWZUSw/roub3rhZP4uL3pNlbI=";
   };
-  cadmium = builtins.fetchTarball {
-    url = "https://github.com/Maccraft123/Cadmium/archive/e405d086dd6579499811436cd9979c392d0fa4e6.tar.gz";
-    sha256 = "0wk6m0w7grrfkfqisghax0xa4ykynlz2l5gc0rbzffqlfb92l403";
+  qrtr = fetchFromGitHub {
+    owner = "andersson";
+    repo = "qrtr";
+    rev = "d0d471c96e7d112fac6f48bd11f9e8ce209c04d2";
+    sha256 = "KF0gCBRw3BDJdK1s+dYhHkokVTHwRFO58ho0IwHPehc=";
+  };
+  qmic = fetchFromGitHub {
+    owner = "andersson";
+    repo = "qmic";
+    rev = "4574736afce75aa5eec1e1069a19563410167c9f";
+    sha256 = "0/mIg98pN66ZaVsQ6KmZINuNfiKvdEHMsqDx0iciF8w=";
+  };
+  rmtfs = fetchFromGitHub {
+    owner = "andersson";
+    repo = "rmtfs";
+    rev = "7a5ae7e0a57be3e09e0256b51b9075ee6b860322";
+    sha256 = "iyTIPuzZofs2n0aoiA/06edDXWoZE3/NY1vsy6KuUiw=";
   };
 }

@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  inherit (import ./sources.nix) cadmium;
+  inherit (import ./sources.nix { inherit (pkgs) fetchFromGitHub; }) imagebuilder;
 in
 {
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -20,7 +20,7 @@ in
       '';
     firmware-trogdor = pkgs.runCommand "firmware-trogdor" {} ''
       mkdir -p $out/lib
-      cp -rT ${cadmium}/baseboard/trogdor/firmware $out/lib/firmware
+      cp -rT ${imagebuilder}/systems/chromebook_trogdor/extra-files/lib/firmware $out/lib/firmware
     '';
     rmtfs = final.callPackage ./rmtfs.nix {};
     qmic = final.callPackage ./qmic.nix {};

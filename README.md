@@ -1,3 +1,9 @@
+# New work
+
+https://github.com/NixOS/mobile-nixos supports sc7180 now.
+If it doesn't work, contribute to it, it's a much better framework than this.
+Maybe you'll even get the LTE working.
+
 # Preparing the installation
 
 You must first set your Chromebook to developer mode. Then you can boot
@@ -57,8 +63,6 @@ Make "/" a `tmpfs`. This is a good practice in general.
 
 # Known issues
 
-- Graphical glitches happen occasionally.
-- Sound stops working when you suspend and wake up.
-  + `systemctl --user restart pipewire` to fix it.
 - Hardware decode through `mpv --hwdec=v4l2m2m_copy` doesn't work great,
   especially seeking.
+- No way to choose profile to boot (but should be easy to implement honestly)
